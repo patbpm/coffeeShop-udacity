@@ -20,7 +20,7 @@ CORS(app)
 !! NOTE THIS MUST BE UNCOMMENTED ON FIRST RUN
 !! Running this funciton will add one
 '''
-# db_drop_and_create_all()
+db_drop_and_create_all()
 
 # ROUTES
 # Get drink endpoint
@@ -36,7 +36,8 @@ def get_drinks():
 
     return jsonify({
         "success": True,
-        'drinks': drinkShortList
+        'drinks': drinkShortList,
+        "status": 200
     })
 
 
@@ -49,7 +50,8 @@ def get_drink_detail(jwt):
     drinkLong = [drink.long() for drink in drinks]
     return jsonify({
         "success": True,
-        "drinks": drinkLong
+        "drinks": drinkLong,
+        "status": 200
     })
 
 
@@ -70,7 +72,8 @@ def add_new_drink(jwt):
     
     return jsonify({
         'success': True,
-        "drinks": [drink.long()]
+        "drinks": [drink.long()],
+        "status": 200
     })
 
 
